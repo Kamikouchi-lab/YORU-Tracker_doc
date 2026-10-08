@@ -50,14 +50,14 @@ YORU-dev/
 ```
 mkdir YORU-dev
 cd YORU-dev
-git clone -b yoru-tracker-lite https://github.com/Kamikouchi-lab/YORU.git
+git clone -b v2.0.0-beta.4 https://github.com/Kamikouchi-lab/YORU.git
 git clone https://github.com/Kamikouchi-lab/YORU-Tracker.git
 ```
 
 <div class="note" markdown="1">
-**Which YORU?** YORU Tracker requires **YORU 2.0.0b3 or later (and below 3)**, with the external API that YORU documents for YORU Tracker. `yoru-tracker-lite` is the YORU branch YORU Tracker's CI tests against. The stable YORU v1.1.x is too old: with it beside YORU Tracker, `uv sync` fails.
+**Which YORU?** YORU Tracker requires **YORU 2.0.0 Beta 4 or later (and below 3)**: Beta 4 is the first YORU release with the external API that YORU documents for YORU Tracker, and the version YORU Tracker's CI tests against. The stable YORU v1.1.x is too old: with it beside YORU Tracker, `uv sync` fails.
 
-If you already have a YORU folder, you can use it: check out the branch there (`git -C YORU checkout yoru-tracker-lite`) instead of cloning again.
+If you already have a YORU folder, you can use it: check out the release there (`git -C YORU fetch --tags`, then `git -C YORU checkout v2.0.0-beta.4`) instead of cloning again.
 </div>
 
 ### 2. Build the environment
