@@ -1,0 +1,49 @@
+# Setup
+title:               YORU Tracker
+tagline:             'Identities and trajectories for YORU detections'
+description:         '“YORU Tracker” is the tracking sister application of YORU. It gives each animal that YORU detects a persistent ID across frames, draws its trajectory, and exports per-animal tracks.'
+url:                 "https://kamikouchi-lab.github.io"
+baseurl:             "/YORU-Tracker_doc"
+permalink:           pretty
+markdown:            kramdown
+
+plugins:
+  - jekyll-sitemap
+
+# About/contact
+author:
+  name:              Hayato M. Yamanouchi
+  url:               https://github.com/HMYamano
+
+
+# Custom vars
+version:             v0.1.0
+yoru_requirement:    v2.0.0-beta.3 or later
+
+
+github:
+  repo: https://github.com/Kamikouchi-lab/YORU-Tracker
+
+yoru:
+  repo: https://github.com/Kamikouchi-lab/YORU
+  docs: https://kamikouchi-lab.github.io/YORU_doc/
+
+sponsor:
+  URL: https://github.com/sponsors/HMYamano
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+collections:
+  guides:
+    output: true
+    permalink: /guides/:name/
+  tutorial:
+    output: true
+    permalink: /tutorial/:name/
+  devnotes:
+    output: true
+    permalink: /devnotes/:name/

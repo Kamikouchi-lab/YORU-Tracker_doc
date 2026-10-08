@@ -1,0 +1,24 @@
+{%- comment -%}
+  Previous / next page within the current collection, in "order".
+{%- endcomment -%}
+{%- assign docs = site[page.collection] | sort: "order" -%}
+{%- assign prev = nil -%}
+{%- assign next = nil -%}
+{%- for d in docs -%}
+  {%- if d.url == page.url -%}
+    {%- assign i = forloop.index0 -%}
+    {%- if i > 0 -%}{%- assign p = i | minus: 1 -%}{%- assign prev = docs[p] -%}{%- endif -%}
+    {%- assign n = i | plus: 1 -%}
+    {%- if n < docs.size -%}{%- assign next = docs[n] -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if prev or next -%}
+<nav class="pager">
+  {%- if prev %}
+  <a class="pager-prev" href="{{ prev.url | relative_url }}"><small>Previous</small>&larr; {{ prev.title }}</a>
+  {%- endif -%}
+  {%- if next %}
+  <a class="pager-next" href="{{ next.url | relative_url }}"><small>Next</small>{{ next.title }} &rarr;</a>
+  {%- endif %}
+</nav>
+{%- endif -%}

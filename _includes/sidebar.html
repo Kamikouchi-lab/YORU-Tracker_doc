@@ -1,0 +1,70 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" {% if page.title == "Home" %}checked{% endif %}>
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <!-- Sidebar logo -->
+  <div class="sidebar-logo">
+    <a href="{{ '/' | relative_url }}"><img src="{{ '/logos/YORU_Tracker_logo_dark.png' | relative_url }}" alt="YORU Tracker"></a>
+  </div>
+
+  <div class="sidebar-item">
+    <p>{{ site.description }}</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <!-- Home link always at the top -->
+    <a class="sidebar-nav-item{% if page.title == "Home" %} active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
+
+    <details{% if page.collection == "guides" %} open{% endif %}>
+      <summary class="sidebar-nav-item">User Guides</summary>
+      {% assign guides = site.guides | sort: "order" %}
+      {% for d in guides %}
+        <a class="sidebar-nav-item{% if page.url == d.url %} active{% endif %}"
+          href="{{ d.url | relative_url }}">{{ d.title }}</a>
+      {% endfor %}
+    </details>
+
+    <details{% if page.collection == "tutorial" %} open{% endif %}>
+      <summary class="sidebar-nav-item">Step-by-step Protocols</summary>
+      {% assign tutorial_pages = site.tutorial | sort: "order" %}
+      {% for t in tutorial_pages %}
+        <a class="sidebar-nav-item{% if page.url == t.url %} active{% endif %}"
+          href="{{ t.url | relative_url }}">{{ t.title }}</a>
+      {% endfor %}
+    </details>
+
+    <details{% if page.collection == "devnotes" %} open{% endif %}>
+      <summary class="sidebar-nav-item">Development notes</summary>
+      {% assign devs = site.devnotes | sort: "order" %}
+      {% for d in devs %}
+        <a class="sidebar-nav-item{% if page.url == d.url %} active{% endif %}"
+          href="{{ d.url | relative_url }}">{{ d.title }}</a>
+      {% endfor %}
+    </details>
+
+    <!-- Dynamically generate other pages in specified order -->
+    {% assign page_pages = site.pages | where: "layout", "page" | sort: "order" %}
+    {% for node in page_pages %}
+      {% if node.title and node.title != "Home" %}
+        <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url | relative_url }}">{{ node.title }}</a>
+      {% endif %}
+    {% endfor %}
+
+    <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
+    <a class="sidebar-nav-item" href="{{ site.yoru.docs }}">YORU documentation</a>
+    <span class="sidebar-nav-item">Currently {{ site.version }}</span>
+  </nav>
+
+  <div class="sidebar-item sidebar-sponsor">
+    <p>Support the development of YORU and YORU Tracker.</p>
+    {% include sponsor-button.html %}
+  </div>
+
+  <div class="sidebar-item">
+    <p>
+      &copy;Copyright {{ site.time | date: '%Y' }} Hayato M. Yamanouchi
+    </p>
+  </div>
+</div>
