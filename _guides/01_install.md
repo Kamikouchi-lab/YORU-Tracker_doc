@@ -14,13 +14,13 @@ YORU Tracker is installed with [uv](https://docs.astral.sh/uv/), **next to a YOR
 
 YORU Tracker is developed for **Windows 10 or later**, and its CI runs on Windows.
 
-Detection is done by YORU, so it has YORU's needs. To detect on a GPU, install an **NVIDIA driver that supports CUDA 12.x**. The CUDA toolkit is not needed: the PyTorch wheels carry their own CUDA runtime. Check the driver with:
+Detection is done by YORU, so it has YORU's needs. To detect on a GPU, install an **NVIDIA driver**: YORU v2.0.0 Beta 4 uses the CUDA 12.8 build of PyTorch, which needs **driver 570 or newer** (572.xx on Windows) and covers every card up to the RTX 50-series. The CUDA toolkit is not needed: the PyTorch wheels carry their own CUDA runtime. Check the driver with:
 
 ```
 nvidia-smi
 ```
 
-Without a usable GPU, detection runs on the CPU — everything works, but more slowly. Tracking itself always runs on the CPU and is light. See YORU's [Install guide]({{ site.yoru.docs }}guides/01-install/) for the details of drivers and compute devices.
+Without a usable GPU, detection runs on the CPU — everything works, but more slowly. Tracking itself always runs on the CPU and is light. See YORU's [Beta Install guide]({{ site.yoru.docs }}beta-guides/01-install/) for the details of drivers and compute devices.
 
 ### 2. uv and Git
 
@@ -50,14 +50,14 @@ YORU-dev/
 ```
 mkdir YORU-dev
 cd YORU-dev
-git clone -b yoru-tracker-lite https://github.com/Kamikouchi-lab/YORU.git
-git clone https://github.com/Kamikouchi-lab/YORU-Tracker.git
+git clone -b v2.0.0-beta.4 https://github.com/Kamikouchi-lab/YORU.git
+git clone -b v0.1.0 https://github.com/Kamikouchi-lab/YORU-Tracker.git
 ```
 
 <div class="note" markdown="1">
-**Which YORU?** YORU Tracker requires **YORU 2.0.0b3 or later (and below 3)**, with the external API that YORU documents for YORU Tracker. `yoru-tracker-lite` is the YORU branch YORU Tracker's CI tests against. The stable YORU v1.1.x is too old: with it beside YORU Tracker, `uv sync` fails.
+**Which YORU?** YORU Tracker requires **YORU 2.0.0 Beta 4 or later (and below 3)**: Beta 4 is the first YORU release with the external API that YORU documents for YORU Tracker, and the version YORU Tracker's CI tests against. The stable YORU v1.1.x is too old: with it beside YORU Tracker, `uv sync` fails.
 
-If you already have a YORU folder, you can use it: check out the branch there (`git -C YORU checkout yoru-tracker-lite`) instead of cloning again.
+If you already have a YORU folder, you can use it: check out the release there (`git -C YORU fetch --tags`, then `git -C YORU checkout v2.0.0-beta.4`) instead of cloning again.
 </div>
 
 ### 2. Build the environment
@@ -93,15 +93,19 @@ uv run yoru-tracker
 
 ## Updating
 
-Pull both repositories, then sync again from the YORU Tracker folder:
+Both folders are checked out at a release tag, so update them by checking out the newer tags, then sync again from the YORU Tracker folder. Each YORU Tracker [release](https://github.com/Kamikouchi-lab/YORU-Tracker/releases) names the YORU version it needs:
 
 ```
 cd YORU-dev
-git -C YORU pull
-git -C YORU-Tracker pull
+git -C YORU fetch --tags
+git -C YORU checkout v2.0.0-beta.4
+git -C YORU-Tracker fetch --tags
+git -C YORU-Tracker checkout v0.1.0
 cd YORU-Tracker
 uv sync
 ```
+
+Replace the two tags with the ones the release you are moving to names. `git pull` does not work on a tag checkout.
 
 ---
 
@@ -127,4 +131,4 @@ $env:YORU_DEVICE = "cpu"
 uv run yoru-tracker
 ```
 
-See [Choosing the compute device]({{ site.yoru.docs }}guides/01-install/#choosing-the-compute-device) in the YORU documentation.
+See [Choosing the compute device]({{ site.yoru.docs }}beta-guides/01-install/#choosing-the-compute-device) in the YORU documentation.

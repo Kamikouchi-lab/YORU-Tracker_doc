@@ -13,7 +13,7 @@ order: 2
 
 **Q. `uv sync` fails because it cannot find or accept `yoru`.**
 
-**A.** YORU Tracker installs YORU from the folder `../YORU`, and needs YORU 2.0.0b3 or later. Check that the `YORU` folder is beside `YORU-Tracker` (not inside it), and that it is on the `yoru-tracker-lite` branch: `git -C ../YORU checkout yoru-tracker-lite`, then `uv sync` again. The stable YORU v1.1.x does not work. See [Install]({{ site.baseurl }}/guides/01-install/).
+**A.** YORU Tracker installs YORU from the folder `../YORU`, and needs YORU 2.0.0 Beta 4 or later. Check that the `YORU` folder is beside `YORU-Tracker` (not inside it), and that it is at that release: `git -C ../YORU fetch --tags`, `git -C ../YORU checkout v2.0.0-beta.4`, then `uv sync` again. The stable YORU v1.1.x does not work. See [Install]({{ site.baseurl }}/guides/01-install/).
 
 **Q. `python -m yoru_tracker` says Python was not found, or opens the Microsoft Store.**
 

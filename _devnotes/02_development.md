@@ -80,7 +80,7 @@ Do not tune on one video. For a new failure case, add a scenario to `evaluation/
 
 ## Continuous integration
 
-CI (`.github/workflows/ci.yml`) runs on Windows. It checks YORU out beside the repository — at the repository variable `YORU_REF`, by default the `yoru-tracker-lite` branch (`YORU_REPOSITORY` names another repository; a manual run can name any YORU ref) — then runs `uv sync --locked`, the tests with the benchmark regression gate, and the benchmark table, which it posts in the job summary.
+CI (`.github/workflows/ci.yml`) runs on Windows. It checks YORU out beside the repository — at the repository variable `YORU_REF`, by default the YORU tag `v2.0.0-beta.4` (`YORU_REPOSITORY` names another repository; a manual run can name any YORU ref) — then runs `uv sync --locked`, the tests with the benchmark regression gate, and the benchmark table, which it posts in the job summary.
 
 `uv sync --locked` fails when `uv.lock` no longer matches `pyproject.toml` and that YORU. **When YORU's dependencies change, run `uv lock` in YORU Tracker** and commit the new lockfile.
 

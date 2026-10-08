@@ -6,8 +6,8 @@ title: Home
 ## YORU Tracker
 
 <div class="badges" markdown="1">
-[![Version](https://img.shields.io/badge/version-0.1.0-0e274c.svg)](https://github.com/Kamikouchi-lab/YORU-Tracker/blob/main/CHANGELOG.md)
-[![Requires YORU](https://img.shields.io/badge/requires-YORU%20%E2%89%A5%202.0.0b3-f2d851.svg)](https://github.com/Kamikouchi-lab/YORU)
+[![Version](https://img.shields.io/badge/version-0.1.0-0e274c.svg)](https://github.com/Kamikouchi-lab/YORU-Tracker/releases/tag/v0.1.0)
+[![Requires YORU](https://img.shields.io/badge/requires-YORU%20%E2%89%A5%202.0.0b4-f2d851.svg)](https://github.com/Kamikouchi-lab/YORU)
 [![Python 3.10](https://img.shields.io/badge/python-3.10-1d4b8f.svg)](https://www.python.org/downloads/release/python-3100/)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Documentation](https://img.shields.io/badge/docs-YORU%20Tracker-0e274c.svg)](https://kamikouchi-lab.github.io/YORU-Tracker_doc/)
@@ -25,8 +25,16 @@ It is a sister application, not a YORU plugin: it has its own window and its own
 |---|---|---|
 | Purpose | Real-time detection, closed-loop triggers, recording | Identity, trajectories, tracking export |
 | Launch | `python -m yoru` | `python -m yoru_tracker` (or `yoru-tracker`) |
-| Depends on | — | YORU (≥ 2.0.0b3, < 3) |
+| Depends on | — | YORU (≥ 2.0.0b4, < 3) |
 | Documentation | [YORU documentation]({{ site.yoru.docs }}) | This site |
+
+## Versions
+
+| Channel | Version | Notes |
+|---------|---------|-------|
+| **Latest release** | [v0.1.0](https://github.com/Kamikouchi-lab/YORU-Tracker/releases/tag/v0.1.0) | First release (pre-release), 2026-10-08. Needs YORU [v2.0.0-beta.4](https://github.com/Kamikouchi-lab/YORU/releases/tag/v2.0.0-beta.4) or later |
+
+> The full change list is in the [CHANGELOG](https://github.com/Kamikouchi-lab/YORU-Tracker/blob/main/CHANGELOG.md).
 
 <div class="sponsor-cta">
   <p><strong>Support YORU.</strong> YORU and YORU Tracker are free, open-source research software. If they help your work, please consider sponsoring their development on GitHub Sponsors.</p>
@@ -69,11 +77,11 @@ YORU-dev/
     ```
     mkdir YORU-dev
     cd YORU-dev
-    git clone -b yoru-tracker-lite https://github.com/Kamikouchi-lab/YORU.git
-    git clone https://github.com/Kamikouchi-lab/YORU-Tracker.git
+    git clone -b v2.0.0-beta.4 https://github.com/Kamikouchi-lab/YORU.git
+    git clone -b v0.1.0 https://github.com/Kamikouchi-lab/YORU-Tracker.git
     ```
 
-    > YORU Tracker needs YORU 2.0.0b3 or later with YORU's external API. `yoru-tracker-lite` is the YORU branch that YORU Tracker's CI tests against.
+    > YORU Tracker needs YORU 2.0.0 Beta 4 or later, the first YORU release with the external API YORU Tracker uses. `v2.0.0-beta.4` is also the YORU version YORU Tracker's CI tests against.
 
 3. Build the environment. This installs YORU (editable, from `../YORU`) with its CUDA build of PyTorch, then YORU Tracker on top.
 
@@ -132,13 +140,13 @@ For `movie.mp4` you get `movie_tracks.csv` (one row per track per frame), `movie
 - Windows 10 or later. YORU Tracker is developed for Windows, and its CI runs on Windows. Other platforms that YORU supports are untested.
 
 ## Hardware
-- The detector is YORU's, and has YORU's needs: an NVIDIA GPU with a driver that supports CUDA 12.x is recommended for detection. See YORU's [requirements]({{ site.yoru.docs }}).
+- The detector is YORU's, and has YORU's needs: an NVIDIA GPU is recommended for detection, with driver 570 or newer for the CUDA 12.8 build of PyTorch that YORU v2.0.0-beta.4 uses. See YORU's [requirements]({{ site.yoru.docs }}).
 - Tracking itself runs on the CPU and is light. Re-tracking stored detections needs no GPU at all.
 
 ## Software
 - Python 3.10. uv installs it for you.
 - [uv](https://docs.astral.sh/uv/) and [Git](https://git-scm.com/).
-- A YORU checkout (≥ 2.0.0b3, < 3) beside the YORU Tracker folder.
+- A YORU checkout (≥ 2.0.0b4, < 3) beside the YORU Tracker folder.
 
 
 # Status
