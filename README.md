@@ -19,8 +19,10 @@ with a navy theme (`theme-navy` in `public/css/lanyon.css`).
 
 ## Preview locally
 
+GitHub Pages builds the site with the `github-pages` gem (Jekyll 3.10):
+
 ```
-gem install jekyll jekyll-sitemap webrick
+gem install github-pages webrick
 jekyll serve
 ```
 
