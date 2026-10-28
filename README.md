@@ -14,6 +14,7 @@ with a navy theme (`theme-navy` in `public/css/lanyon.css`).
 | `_tutorial/` | Step-by-step Protocols |
 | `_devnotes/` | Development notes |
 | `troubleshootings.md` | Q and A |
+| `_data/ecosystem.yml` | The YORU family (sidebar and Home); keep it in step with YORU-Explain_doc's |
 | `logos/`, `public/` | Logos, favicon, CSS and JavaScript |
 
 ## Preview locally

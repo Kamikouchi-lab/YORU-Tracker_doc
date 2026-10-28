@@ -809,3 +809,18 @@ kbd {
     overflow-x: auto;
   }
 }
+
+/* The YORU family in the sidebar: a dot in each application's accent */
+.sidebar-app i {
+  display: inline-block;
+  width: .6em;
+  height: .6em;
+  margin-right: .55em;
+  border-radius: 2px;
+}
+.sidebar-nav-item small {
+  color: rgba(255,255,255,.55);
+}
+.sidebar-app.current {
+  color: #fff;
+}

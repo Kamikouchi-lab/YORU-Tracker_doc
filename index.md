@@ -28,6 +28,9 @@ It is a sister application, not a YORU plugin: it has its own window and its own
 | Depends on | — | YORU (≥ 2.0.0b4, < 3) |
 | Documentation | [YORU documentation]({{ site.yoru.docs }}) | This site |
 
+{% assign explain = site.data.ecosystem.apps | where: "name", "YORU-Explain" | first %}
+YORU Tracker is one of YORU's sister applications. Its sibling [YORU-Explain]({{ explain.docs }}) shows which parts of a frame one YORU detection's score depends on; the two can share one YORU checkout. YORU's [Ecosystem page]({{ site.data.ecosystem.overview }}) shows how YORU, its trigger plugins and its sister applications fit together.
+
 ## Versions
 
 | Channel | Version | Notes |
