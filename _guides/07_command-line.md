@@ -149,4 +149,5 @@ Prints the default tracker settings as YAML. Edit the file and pass it with `--c
 |---|---|
 | `0` | Success. |
 | `1` | An error, or a batch in which a file failed. Errors are printed on standard error — as `[yoru-tracker] <ErrorType>: <message>` with the traceback in `~/.yoru/logs/yoru_tracker.log`, or, for a wrong combination of arguments, as a plain message saying what to do. |
+| `2` | The command line itself is wrong (a missing or unknown option); the usage is printed. |
 | `130` | Interrupted with <kbd>Ctrl</kbd>+<kbd>C</kbd>. |

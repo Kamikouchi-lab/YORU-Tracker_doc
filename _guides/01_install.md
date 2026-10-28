@@ -105,7 +105,7 @@ cd YORU-Tracker
 uv sync
 ```
 
-Replace the two tags with the ones the release you are moving to names. `git pull` does not work on a tag checkout.
+Replace the two tags with those named by the release you are moving to. `git pull` does not work on a tag checkout.
 
 ---
 

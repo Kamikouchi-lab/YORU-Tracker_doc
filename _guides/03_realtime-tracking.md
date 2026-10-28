@@ -89,9 +89,9 @@ Tracker settings changed while a run is going do **not** reach it at once. The m
 2. **incl. predicted** — also write rows for lost tracks' predicted positions (off by default).
 3. While the run is going, press **Start recording**. The tracks are written as they come, to
 
-    ```text
-    live_YYYYMMDD_HHMMSS_tracks.csv
-    ```
+   ```text
+   live_YYYYMMDD_HHMMSS_tracks.csv
+   ```
 
     named after the time recording started.
 

@@ -44,7 +44,7 @@ frame_id track_id track_state predicted vx vy track_confidence association_cost
 
 **Predicted rows** — where a lost track is estimated to be — are written only when asked for (*Include predicted rows of lost tracks*, *incl. predicted*, or `--include-predicted`). Without them, each row is a real detection, and a missing (`frame_id`, `track_id`) pair is a frame in which that animal was not detected.
 
-**Frame rate.** `total_time` uses the video's frame rate. A video that states no frame rate has it measured from its frames' timestamps, or, without those, 30 fps assumed. The window, the command line and `source.fps_source` in the JSON (`file`, `timestamps` or `assumed`) say which.
+**Frame rate.** `total_time` uses the video's frame rate. A video that states no frame rate has it measured from its frames' timestamps, or, without those, 30 fps is assumed. The window, the command line and `source.fps_source` in the JSON (`file`, `timestamps` or `assumed`) say which.
 
 ### Reading it
 
@@ -85,6 +85,8 @@ Beside every tracks CSV, a JSON file records how it was made:
 | `outputs` | The files written, the number of rows, whether predicted rows are included. |
 | `summary` | Frames, whether the run was complete, number of track IDs, detector and tracker time per frame. |
 | `track_columns` | The CSV's columns. |
+
+The table describes the JSON of a video run. Tracking a detections CSV again from the command line (`yoru-tracker track movie_detections.csv`) records less: `source` holds only `kind`, `path`, `layout` and `frames` — no frame rate or size — `detector` is empty, and `summary` holds only `frames` and `track_ids`. For the frame rate of such a run, read the JSON of the original video run.
 
 With the detections CSV and this file, a run can be repeated exactly, on another machine and without a GPU. To get the configuration back in Python:
 

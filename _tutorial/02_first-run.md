@@ -8,9 +8,9 @@ First, track one video with the default settings, to see what the tracker does w
 
 1. Launch YORU Tracker and press **Video Tracking**.
 
-    ```
-    uv run yoru-tracker
-    ```
+   ```
+   uv run yoru-tracker
+   ```
 
 2. **Video** → *Browse* → `pair01.mp4`.
 

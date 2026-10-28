@@ -15,7 +15,7 @@ title: Home
 [![GitHub stars](https://img.shields.io/github/stars/Kamikouchi-lab/YORU-Tracker.svg?style=social&label=Star)](https://github.com/Kamikouchi-lab/YORU-Tracker)
 </div>
 
-<img src="logos/YORU_Tracker_logo.png" width="60%" alt="YORU Tracker logo">
+<img src="{{ '/logos/YORU_Tracker_logo.png' | relative_url }}" width="60%" alt="YORU Tracker logo">
 
 **YORU Tracker** is multi-animal tracking for [YORU](https://github.com/Kamikouchi-lab/YORU). YORU detects animals and behaviours in every frame; YORU Tracker gives each animal a **persistent ID across frames**, draws its **trajectory**, and **exports per-animal tracks** — live from a camera, from a video, or for a whole folder of videos.
 
@@ -71,33 +71,33 @@ YORU-dev/
 1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and [Git](https://git-scm.com/).
 
     Windows (PowerShell):
-    ```
-    winget install --id=astral-sh.uv -e
-    ```
+   ```
+   winget install --id=astral-sh.uv -e
+   ```
 
 2. Clone both repositories into one folder.
 
-    ```
-    mkdir YORU-dev
-    cd YORU-dev
-    git clone -b v2.0.0-beta.4 https://github.com/Kamikouchi-lab/YORU.git
-    git clone -b v0.1.0 https://github.com/Kamikouchi-lab/YORU-Tracker.git
-    ```
+   ```
+   mkdir YORU-dev
+   cd YORU-dev
+   git clone -b v2.0.0-beta.4 https://github.com/Kamikouchi-lab/YORU.git
+   git clone -b v0.1.0 https://github.com/Kamikouchi-lab/YORU-Tracker.git
+   ```
 
     > YORU Tracker needs YORU 2.0.0 Beta 4 or later, the first YORU release with the external API YORU Tracker uses. `v2.0.0-beta.4` is also the YORU version YORU Tracker's CI tests against.
 
 3. Build the environment. This installs YORU (editable, from `../YORU`) with its CUDA build of PyTorch, then YORU Tracker on top.
 
-    ```
-    cd YORU-Tracker
-    uv sync
-    ```
+   ```
+   cd YORU-Tracker
+   uv sync
+   ```
 
 4. Launch YORU Tracker.
 
-    ```
-    uv run yoru-tracker
-    ```
+   ```
+   uv run yoru-tracker
+   ```
 
 
 # Quick start
@@ -143,7 +143,7 @@ For `movie.mp4` you get `movie_tracks.csv` (one row per track per frame), `movie
 - Windows 10 or later. YORU Tracker is developed for Windows, and its CI runs on Windows. Other platforms that YORU supports are untested.
 
 ## Hardware
-- The detector is YORU's, and has YORU's needs: an NVIDIA GPU is recommended for detection, with driver 570 or newer for the CUDA 12.8 build of PyTorch that YORU v2.0.0-beta.4 uses. See YORU's [requirements]({{ site.yoru.docs }}).
+- The detector is YORU's, and has YORU's needs: an NVIDIA GPU is recommended for detection, with driver 570 or newer for the CUDA 12.8 build of PyTorch that YORU v2.0.0-beta.4 uses. See YORU's [requirements]({{ site.yoru.docs }}beta-guides/01-install/#prerequisites).
 - Tracking itself runs on the CPU and is light. Re-tracking stored detections needs no GPU at all.
 
 ## Software

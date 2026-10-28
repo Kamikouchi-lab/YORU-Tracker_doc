@@ -91,4 +91,4 @@ Because the detections were saved, the whole experiment can be tracked again wit
 uv run yoru-tracker track D:\experiment\results\pair01_detections.csv --config new_settings.yaml --out D:\experiment\results_v2
 ```
 
-The `*_tracks.json` beside each result records the exact settings it was made with.
+The `*_tracks.json` beside each result records the exact settings it was made with. It does not record the frame rate, because a CSV has none: to run `analyse.py` on these results, keep reading `fps` from the JSON of the first run (`D:\experiment\results\pair01_tracks.json`).

@@ -91,7 +91,7 @@ order: 2
 
 **Q. *not a detections file YORU Tracker can read*.**
 
-**A.** YORU Tracker reads its own `*_detections.csv`, YORU's video-analysis CSV and YORU's real-time `*_detect.csv`, told apart by their header. The file has another header — for example, it is a `*_tracks.csv` or a `*_log.csv`.
+**A.** YORU Tracker reads its own `*_detections.csv`, YORU's video-analysis CSV and YORU's real-time `*_detect.csv`, told apart by their header. The file has another header — for example, it is a `*_log.csv`. (A `*_tracks.csv` is not refused here: its header starts like YORU's real-time `*_detect.csv`, so it is read as one. To track again, load the `*_detections.csv` instead.)
 
 **Q. My results disappeared when I ticked *Flip vertical* / *Flip horizontal*.**
 
